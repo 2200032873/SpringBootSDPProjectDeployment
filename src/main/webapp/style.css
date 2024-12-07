@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+:root {
+    --background-light: #f4f4f4;
+    --background-dark: #2c3e50;
+    --text-light: #fff;
+    --text-dark: #333;
+    --navbar-bg: #4070f4; /* Blue for navbar */
+    --sidebar-bg: #2c3e50; /* Darker blue for sidebar */
+    --sidebar-hover: #265df2; /* Lighter blue for hover */
+    --button-bg: #4CAF50; /* Green for buttons */
+    --button-hover-bg: #5cb85c; /* Lighter green on hover */
+}
+
+/* Body and Dark Mode */
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    transition: all 0.5s ease;
+}
+
+body.dark {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+body.dark .navbar, 
+body.dark .sidebar {
+    background-color: #34495e; /* Darker shade for dark mode */
+}
+
+body.dark .navbar a, 
+body.dark .sidebar a {
+    color: var(--text-light);
+}
+
+body.dark .nav-buttons a {
+    background-color: #2980b9; /* Darker blue for buttons in dark mode */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--navbar-bg);
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#toggleSidebar {
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-light);
+    margin-right: 10px;
+}
+
+.logo a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 24px; /* Increased logo font size */
+    font-weight: 600;
+}
+
+.navbar-links a,
+.nav-buttons a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover,
+.nav-buttons a:hover {
+    background-color: var(--sidebar-hover); /* Hover color */
+}
+
+.nav-buttons a {
+    background-color: var(--button-bg);
+    padding: 6px 12px;
+}
+
+#darkLight {
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-light);
+    margin-left: 10px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: var(--sidebar-bg);
+    overflow-x: hidden;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    z-index: 1;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar a {
+    padding: 12px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--text-light);
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: var(--sidebar-hover);
+}
+
+/* Main Content Styling */
+.content {
+    padding: 20px;
+    margin-top: 60px; /* Adjust for fixed navbar */
+}
+
+h1 {
+    font-size: 28px;
+    color: var(--text-dark);
+}
+
+p {
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+/* Dark mode styles for text */
+body.dark h1,
+body.dark p {
+    color: var(--text-light);
+}
